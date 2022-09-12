@@ -1,0 +1,39 @@
+ALGORITHM Probleme1-solution1
+VAR
+    arr1 : ARRAY_OF INTEGER[4];
+    arr2 : ARRAY_OF INTEGER[4];
+    sum : INTEGER := 0 ;
+    y,x,i,j : INTEGER;
+
+BEGIN
+    FOR i FROM 0 TO 3 STEP step1  DO
+        FOR j FROM 0 TO 3 STEP step2  DO
+            
+            IF (arr1[i] <> arr2[j]) THEN
+                x:= arr[i] ;
+            ELSE
+                x:= 0 ;
+            END_IF
+            
+            j := j+1 ;
+          
+        END_FOR
+        sum := sum + x ;
+        i := i+1 ;
+    END_FOR
+    
+    FOR j FROM 0 TO 3 STEP step1  DO
+        FOR i FROM 0 TO 3 STEP step2  DO
+            
+            IF (arr1[i] <> arr2[j]) THEN
+                y:= arr[j] ;
+            ELSE
+                y:= 0 ;
+            END_IF
+            
+            i := i+1 ;
+        END_FOR
+        sum := sum + y ;
+        j := j+1 ;
+    END_FOR
+END

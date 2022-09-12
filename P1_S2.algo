@@ -1,0 +1,50 @@
+ALGORITHM prob1_sol2
+VAR
+   
+   htab1 : HASH_TABLE<INTEGER,INTEGER>;
+   htab2 : HASH_TABLE<INTEGER,INTEGER>;
+   y,x,i,j : INTEGER;
+   sum : INTEGER := 0 ;
+ 
+BEGIN
+   htab1 : HASH_TABLE<INTEGER,INTEGER>;
+   htab1.insert(0,3);
+   htab1.insert(1,1);
+   htab1.insert(2,7);
+   htab1.insert(3,9);
+   Write(htab1);
+
+   htab2 : HASH_TABLE<INTEGER,INTEGER>;
+   htab2.insert(0,2);
+   htab2.insert(1,4);
+   htab2.insert(2,1);
+   htab2.insert(3,9);
+   Write(htab2);
+
+    FOR i FROM 0 TO 3 STEP step1  DO
+        FOR j FROM 0 TO 3 STEP step2  DO
+            IF (htab1.get(i) <> htab2.get(j)) THEN
+                x := htab1.get(i);
+            ELSE
+                x := 0 ;
+            END_IF 
+            j := j+1;
+        END_FOR
+        sum := sum + x;
+        i := i+1;
+    END_FOR
+
+    FOR j FROM 0 TO 3 STEP step1  DO
+        FOR i FROM 0 TO 3 STEP step2  DO
+            IF (htab2.get(j) <> htab1.get(i)) THEN
+                y := htab2.get(j);
+            ELSE
+                y := 0 ;
+            END_IF 
+            i := i+1;
+        END_FOR
+        sum := sum + y;
+        j:= j+1;
+    END_FOR
+
+END
